@@ -1,0 +1,9 @@
+package com.hbss.schedule.runtime.worker.app;
+
+import com.hbss.schedule.config.pojo.AppInfo;
+
+public class AppInitial {
+	public static void appInit(AppInfo appInfo) throws Exception{
+		AppRuntime appRt
+	}
+}
