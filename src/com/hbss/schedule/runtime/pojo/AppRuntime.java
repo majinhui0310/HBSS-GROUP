@@ -51,15 +51,15 @@ public class AppRuntime{
 			}
 		});	
 		
-		if(!this.isAppSwitchFlag() && this.getAppGlobalSwitchFlag() ==null){
-			//通过jlr进行翻牌
+		if(!this.appInfo.isAppSwitchFlag() && this.appInfo.getAppGlobalSwitchFlag() ==null){
+			//通TODO
 		}else{
-			//统一翻牌
-			if(this.isAppSwitchFlag() && this.getAppGlobalSwitchFlag() == null){
-				//应用内统一翻牌
+			//TODO
+			if(this.appInfo.isAppSwitchFlag() && this.appInfo.getAppGlobalSwitchFlag() == null){
+				//TODO
 				
 			}else{
-				//全局统一翻牌
+				//TODO
 			}
 		}
 		
