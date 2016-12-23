@@ -1,7 +1,6 @@
 package com.hbss.schedule.config.loader.xls.reader;
 
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.ss.usermodel.Row;
 
 public class JobLInkInfoConfigReader {
 	public static final int JL_ID_COL = 0;
@@ -11,27 +10,27 @@ public class JobLInkInfoConfigReader {
 	public static final int JL_EXEC_T_RG_COL = 4;
 	public static final int JL_EXEC_OFFSET_COL = 5;
 	
-	public static String getJlId(HSSFRow row){
+	public static String getJlId(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_ID_COL).getStringCellValue();
 	}
 	
-	public static String getJlName(HSSFRow row){
+	public static String getJlName(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_NAME_COL).getStringCellValue();
 	}
 	
-	public static String getJlType(HSSFRow row){
+	public static String getJlType(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_TYPE_COL).getStringCellValue();
 	}
 
-	public static String getJlExecDateRange(HSSFRow row){
+	public static String getJlExecDateRange(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_EXEC_D_RG_COL).getStringCellValue();
 	}
 
-	public static String getJlExecTimeRange(HSSFRow row){
+	public static String getJlExecTimeRange(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_EXEC_T_RG_COL).getStringCellValue();
 	}
 	
-	public static String getJlOffset(HSSFRow row){
+	public static String getJlOffset(Row row){
 		return row.getCell(JobLInkInfoConfigReader.JL_EXEC_OFFSET_COL).getStringCellValue();
 	}
 }

@@ -4,10 +4,22 @@ public class JobLinkInfo {
 	private AppInfo appInfo;
 	private String jobLinkId;
 	private String jobLinkName;
-	private String jobLinkType;  //NR ÈÕ³£ÅúÁ¿  MT ¼à¿ØÅúÁ¿
-	private String jobLinkExecTimeRange; //Ö´ÐÐÊ±¼äÇø¼ä  mmss-mmss
-	private String jobLinkExecDateRange; //Ö´ÐÐÈÕÆÚÇø¼ä [yyyymmdd]-yyyymmdd
-	private String jobLinkExecOffset; //ÅúÁ¿ÈÕÆÚÓë×ÔÈ»ÈÕÆÚÆ«ÒÆÁ¿
+	private String jobLinkType;  //NR ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½  MT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String jobLinkExecTimeRange; //Ö´ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  mmss-mmss
+	private String jobLinkExecDateRange; //Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [yyyymmdd]-yyyymmdd
+	private String jobLinkExecOffset; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
+	
+	public JobLinkInfo(AppInfo appInfo,String jobLinkId, String jobLinkName, String jobLinkType, String jobLinkExecTimeRange,
+			String jobLinkExecDateRange, String jobLinkExecOffset) {
+		super();
+		this.appInfo=appInfo;
+		this.jobLinkId = jobLinkId;
+		this.jobLinkName = jobLinkName;
+		this.jobLinkType = jobLinkType;
+		this.jobLinkExecTimeRange = jobLinkExecTimeRange;
+		this.jobLinkExecDateRange = jobLinkExecDateRange;
+		this.jobLinkExecOffset = jobLinkExecOffset;
+	}
 	public JobLinkInfo() {
 		super();
 	}
