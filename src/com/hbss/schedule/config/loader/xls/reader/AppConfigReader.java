@@ -2,15 +2,15 @@ package com.hbss.schedule.config.loader.xls.reader;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 
-public class AppSheetReader {
+public class AppConfigReader {
 	public static final int APPID_ROW_NO = 0;
 	public static final int APPNAME_ROW_NO = 1;
-	public static final int APPSWITCHFLAG_ROW_NO = 1;
-	public static final int GLOBALSWITCHFLAG_ROW_NO = 1;
+	public static final int APPSWITCHFLAG_ROW_NO = 2;
+	public static final int GLOBALSWITCHFLAG_ROW_NO = 3;
 	public static final int COL_NO = 1;
 	private final HSSFSheet appSheet;
 	
-	public AppSheetReader(HSSFSheet appSheet){
+	public AppConfigReader(HSSFSheet appSheet){
 		this.appSheet=appSheet;
 	}
 	public String readAppId(){
