@@ -14,6 +14,9 @@ public class JobInfo {
 	private String jobParams;
 	private String jobExecMode; // YER QER MER RRR WER nnR
 	private int jobExecTimeout; // running over time threshold /min
+	private String jobExecRange;
+	private int jobAckFlag;
+	private String jobExecUnqScope;
 	private String jobExecUnqFlag;
 	private int jobPriLevel;
 	private String jobLogFile;
@@ -23,9 +26,40 @@ public class JobInfo {
 	private int jobRedoLmt;
 	private int jobRedoItv;   // min
 	private int jobRedoMaxItv;  //min
+	private JobRelationInfo jobRL;
 	public JobInfo(){
 		
 	}
+	
+	public JobInfo(AppInfo appInfo, JobLinkInfo jobLinkInfo, String jobId, LdGrpInfo ldGrpInfo,
+			Set<DstEnvInfo> dstEnvInfoSet, String jobPrgName, String jobExecFlag, String jobParams,
+			String jobExecMode, String jobExecRange, int jobAckFlag, String jobExecUnqScope,
+			String jobExecUnqFlag, int jobPriLevel, String jobLogFile, String jobOkRet, String jobErrRet,
+			String jobRedoRet, int jobRedoLmt, int jobRedoItv, int jobRedoMaxItv) {
+		super();
+		this.appInfo = appInfo;
+		this.jobLinkInfo = jobLinkInfo;
+		this.jobId = jobId;
+		this.ldGrpInfo = ldGrpInfo;
+		this.dstEnvInfoSet = dstEnvInfoSet;
+		this.jobPrgName = jobPrgName;
+		this.jobExecFlag = jobExecFlag;
+		this.jobParams = jobParams;
+		this.jobExecMode = jobExecMode;
+		this.jobExecRange = jobExecRange;
+		this.jobAckFlag = jobAckFlag;
+		this.jobExecUnqScope = jobExecUnqScope;
+		this.jobExecUnqFlag = jobExecUnqFlag;
+		this.jobPriLevel = jobPriLevel;
+		this.jobLogFile = jobLogFile;
+		this.jobOkRet = jobOkRet;
+		this.jobErrRet = jobErrRet;
+		this.jobRedoRet = jobRedoRet;
+		this.jobRedoLmt = jobRedoLmt;
+		this.jobRedoItv = jobRedoItv;
+		this.jobRedoMaxItv = jobRedoMaxItv;
+	}
+
 	public AppInfo getAppInfo() {
 		return appInfo;
 	}
@@ -145,6 +179,44 @@ public class JobInfo {
 	}
 	public void setJobRedoMaxItv(int jobRedoMaxItv) {
 		this.jobRedoMaxItv = jobRedoMaxItv;
+	}
+	public String getJobExecUnqScope() {
+		return jobExecUnqScope;
+	}
+	public void setJobExecUnqScope(String jobExecUnqScope) {
+		this.jobExecUnqScope = jobExecUnqScope;
+	}
+	public int getJobAckFlag() {
+		return jobAckFlag;
+	}
+	public void setJobAckFlag(int jobAckFlag) {
+		this.jobAckFlag = jobAckFlag;
+	}
+	public String getJobExecRange() {
+		return jobExecRange;
+	}
+	public void setJobExecRange(String jobExecRange) {
+		this.jobExecRange = jobExecRange;
+	}
+
+	public JobRelationInfo getJobRL() {
+		return jobRL;
+	}
+
+	public void setJobRL(JobRelationInfo jobRL) {
+		this.jobRL = jobRL;
+	}
+	
+	public void setJobRL(String upAppId,String upJobLinkId,String upJobId){
+		if(jobRL == null){
+			synchronized(this)
+			{
+				if(jobRL == null){
+					jobRL = new JobRelationInfo(this);
+				}
+			}
+		}
+		jobRL.setFJobInfo(upAppId,upJobLinkId,upJobId);
 	}
 	
 }

@@ -1,5 +1,8 @@
 package com.hbss.schedule.config.pojo;
 
+import java.util.List;
+import java.util.Map;
+
 public class JobLinkInfo {
 	private AppInfo appInfo;
 	private String jobLinkId;
@@ -8,6 +11,7 @@ public class JobLinkInfo {
 	private String jobLinkExecTimeRange; //ִ��ʱ������  mmss-mmss
 	private String jobLinkExecDateRange; //ִ���������� [yyyymmdd]-yyyymmdd
 	private String jobLinkExecOffset; //������������Ȼ����ƫ����
+	private Map<String,JobInfo> jobList;
 	
 	public JobLinkInfo(AppInfo appInfo,String jobLinkId, String jobLinkName, String jobLinkType, String jobLinkExecTimeRange,
 			String jobLinkExecDateRange, String jobLinkExecOffset) {
@@ -64,5 +68,11 @@ public class JobLinkInfo {
 	}
 	public void setJobLinkExecOffset(String jobLinkExecOffset) {
 		this.jobLinkExecOffset = jobLinkExecOffset;
+	}
+	public Map<String,JobInfo> getJobList() {
+		return jobList;
+	}
+	public void setJobList(Map<String,JobInfo> jobList) {
+		this.jobList = jobList;
 	}
 }

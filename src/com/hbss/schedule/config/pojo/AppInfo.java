@@ -1,5 +1,6 @@
 package com.hbss.schedule.config.pojo;
 
+import java.util.Map;
 import java.util.Set;
 
 public class AppInfo implements Cloneable{
@@ -7,18 +8,19 @@ public class AppInfo implements Cloneable{
 	private String appName;
 	private boolean appSwitchFlag;
 	private String appGlobalSwitchFlag;
-	private Set<JobLinkInfo> jobLinks;
-	public Set<JobLinkInfo> getJobLinks() {
+	private Map<String,LdGrpInfo> ldGrps1;
+	private Map<String,JobLinkInfo> jobLinks;
+	public Map<String,JobLinkInfo> getJobLinks() {
 		return jobLinks;
 	}
-	public void setJobLinks(Set<JobLinkInfo> jobLinks) {
+	public void setJobLinks(Map<String,JobLinkInfo> jobLinks) {
 		this.jobLinks = jobLinks;
 	}
-	public Set<LdGrpInfo> getLdGrps() {
-		return ldGrps;
+	public Map<String,LdGrpInfo> getLdGrps() {
+		return ldGrps1;
 	}
-	public void setLdGrps(Set<LdGrpInfo> ldGrps) {
-		this.ldGrps = ldGrps;
+	public void setLdGrps(Map<String,LdGrpInfo> ldGrps) {
+		this.ldGrps1 = ldGrps;
 	}
 	private Set<LdGrpInfo> ldGrps;
 	public AppInfo(){
