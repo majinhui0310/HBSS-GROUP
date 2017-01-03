@@ -53,4 +53,29 @@ public class LdGrpInfo {
 	public void setLdGrpStatus(String ldGrpStatus) {
 		this.ldGrpStatus = ldGrpStatus;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ldGrpId == null) ? 0 : ldGrpId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LdGrpInfo other = (LdGrpInfo) obj;
+		if (ldGrpId == null) {
+			if (other.ldGrpId != null)
+				return false;
+		} else if (!ldGrpId.equals(other.ldGrpId))
+			return false;
+		return true;
+	}
+	
+	
 }

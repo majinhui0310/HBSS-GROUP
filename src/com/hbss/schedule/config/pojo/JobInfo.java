@@ -218,5 +218,30 @@ public class JobInfo {
 		}
 		jobRL.setFJobInfo(upAppId,upJobLinkId,upJobId);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((jobId == null) ? 0 : jobId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JobInfo other = (JobInfo) obj;
+		if (jobId == null) {
+			if (other.jobId != null)
+				return false;
+		} else if (!jobId.equals(other.jobId))
+			return false;
+		return true;
+	}
 	
 }

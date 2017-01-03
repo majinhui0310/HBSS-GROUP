@@ -75,4 +75,28 @@ public class JobLinkInfo {
 	public void setJobList(Map<String,JobInfo> jobList) {
 		this.jobList = jobList;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((jobLinkId == null) ? 0 : jobLinkId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JobLinkInfo other = (JobLinkInfo) obj;
+		if (jobLinkId == null) {
+			if (other.jobLinkId != null)
+				return false;
+		} else if (!jobLinkId.equals(other.jobLinkId))
+			return false;
+		return true;
+	}
+	
 }

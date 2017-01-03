@@ -36,8 +36,9 @@ public class XLSJobInfoLoader {
 		JobLinkInfo jl = jlService.getJobLinkInfo(appInfo,jlSheet.getSheetName());
 		Row jlRow=null;
 		jlRows.next();
+		JobInfo j= null;
 		while(jlRows.hasNext()){
-			jobList.add(new JobInfo(appInfo,jl,JobInfoConfigReader.getJobId(jlRow),
+			j=new JobInfo(appInfo,jl,JobInfoConfigReader.getJobId(jlRow),
 					lgService.getLdGrpInfo(appInfo, JobInfoConfigReader.getLdGrpInfo(jlRow)),
 					genDstEnvSet(JobInfoConfigReader.getDstEnvInfo(jlRow)),
 					JobInfoConfigReader.getJobPrgName(jlRow),
@@ -55,7 +56,12 @@ public class XLSJobInfoLoader {
 					JobInfoConfigReader.getJobRedoRet(jlRow),
 					JobInfoConfigReader.getJobRedoLmt(jlRow),
 					JobInfoConfigReader.getJobRedoItv(jlRow),
-					JobInfoConfigReader.getJobRedoMaxItv(jlRow)));
+					JobInfoConfigReader.getJobRedoMaxItv(jlRow));
+			if(jobList.contains(j)){
+				throw new Exception("job is duplicate! "+j.getJobId());
+			}else{
+				jobList.add(j);
+			}
 		}
 
 				

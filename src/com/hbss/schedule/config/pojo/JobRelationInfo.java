@@ -47,4 +47,6 @@ public class JobRelationInfo {
 	public void setcJobInfo(JobInfo cJobInfo) {
 		this.cJobInfo.add(cJobInfo);
 	}
+	
+	
 }

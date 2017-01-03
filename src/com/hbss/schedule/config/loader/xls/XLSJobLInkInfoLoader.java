@@ -13,20 +13,24 @@ import com.hbss.schedule.config.pojo.AppInfo;
 import com.hbss.schedule.config.pojo.JobLinkInfo;
 
 public class XLSJobLInkInfoLoader {
-	
-	public static ConcurrentHashMap<String,JobLinkInfo> loadJobLinInfo(AppInfo appInfo,HSSFSheet jlSheet){
-		ConcurrentHashMap<String,JobLinkInfo> jls = new ConcurrentHashMap<String,JobLinkInfo>();
-		Iterator<Row> jlRows  = jlSheet.rowIterator();
-		Row jlRow=null;
+
+	public static ConcurrentHashMap<String, JobLinkInfo> loadJobLinInfo(AppInfo appInfo, HSSFSheet jlSheet)
+			throws Exception {
+		ConcurrentHashMap<String, JobLinkInfo> jls = new ConcurrentHashMap<String, JobLinkInfo>();
+		Iterator<Row> jlRows = jlSheet.rowIterator();
+		Row jlRow = null;
 		jlRows.next();
-		while(jlRows.hasNext()){
-			jlRow=jlRows.next();
-			jls.put(JobLInkInfoConfigReader.getJlId(jlRow),new JobLinkInfo(appInfo,JobLInkInfoConfigReader.getJlId(jlRow),
-					JobLInkInfoConfigReader.getJlName(jlRow),
-					JobLInkInfoConfigReader.getJlType(jlRow),
-					JobLInkInfoConfigReader.getJlExecTimeRange(jlRow),
-					JobLInkInfoConfigReader.getJlExecDateRange(jlRow),
-					JobLInkInfoConfigReader.getJlOffset(jlRow)));
+		while (jlRows.hasNext()) {
+			jlRow = jlRows.next();
+			if (jls.containsKey(JobLInkInfoConfigReader.getJlId(jlRow))) {
+				jls=null;
+				throw new Exception("job id [" + JobLInkInfoConfigReader.getJlId(jlRow) + "is duplicate!");
+			} else {
+				jls.put(JobLInkInfoConfigReader.getJlId(jlRow), new JobLinkInfo(appInfo,
+						JobLInkInfoConfigReader.getJlId(jlRow), JobLInkInfoConfigReader.getJlName(jlRow),
+						JobLInkInfoConfigReader.getJlType(jlRow), JobLInkInfoConfigReader.getJlExecTimeRange(jlRow),
+						JobLInkInfoConfigReader.getJlExecDateRange(jlRow), JobLInkInfoConfigReader.getJlOffset(jlRow)));
+			}
 		}
 		return jls;
 	}

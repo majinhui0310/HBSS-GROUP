@@ -81,4 +81,28 @@ public class DstEnvInfo {
 	public void setDstEnvStgWgt(float dstEnvStgWgt) {
 		this.dstEnvStgWgt = dstEnvStgWgt;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dstEnvId == null) ? 0 : dstEnvId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DstEnvInfo other = (DstEnvInfo) obj;
+		if (dstEnvId == null) {
+			if (other.dstEnvId != null)
+				return false;
+		} else if (!dstEnvId.equals(other.dstEnvId))
+			return false;
+		return true;
+	}
+	
 }
